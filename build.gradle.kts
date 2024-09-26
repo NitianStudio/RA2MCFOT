@@ -1,5 +1,7 @@
 import cn.hutool.json.JSONObject
 import com.vanniktech.maven.publish.SonatypeHost
+import net.fabricmc.loom.LoomGradleExtension
+import net.fabricmc.loom.api.LoomGradleExtensionAPI
 
 plugins {
     `java-library`
@@ -8,6 +10,9 @@ plugins {
     `maven-publish`
     base
     signing
+    id("dev.architectury.loom") version "1.7-SNAPSHOT" apply false
+    id("architectury-plugin") version "3.4-SNAPSHOT"
+    id ("com.github.johnrengelman.shadow") version "8.+" apply false
 }
 
 initGradleProperties()
@@ -26,9 +31,21 @@ subprojects {
     apply(plugin = "com.vanniktech.maven.publish")
     apply(plugin = "java-library")
 
+    repositories {
+        maven("https://maven.fabricmc.net/")
+        maven("https://maven.architectury.dev/")
+        maven("https://files.minecraftforge.net/maven/")
+        mavenCentral()
+        mavenLocal()
+    }
+
     base {
         archivesName = getSubProjectName(rootProject)
     }
+}
+
+architectury {
+    minecraft = buildProperties().getProperty("minecraft.version")
 }
 
 allprojects {
@@ -84,5 +101,33 @@ allprojects {
                 developerConnection = "scm:git:ssh://${getApiGithubJson().getStr("ssh_url")}"
             }
         }
+    }
+}
+
+subprojects {
+    apply(plugin = "dev.architectury.loom")
+    apply(plugin = "architectury-plugin")
+    apply(plugin = "maven-publish")
+
+    dependencies {
+        "minecraft"("net.minecraft:minecraft:${buildProperties().getProperty("minecraft.version")}")
+        "mappings"(LoomGradleExtension.get(project).layered {
+            officialMojangMappings()
+        })
+//        mappings loom.officialMojangMappings()
+    }
+
+    java {
+        // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+        // if it is present.
+        // If you remove this line, sources will not be generated.
+        withSourcesJar()
+
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    tasks.withType<JavaCompile>().configureEach {
+        options.release = 21
     }
 }

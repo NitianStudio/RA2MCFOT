@@ -1,0 +1,38 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "ra2mcfot"
+version = "${version}"
+displayName = "ra2mcfot"
+authors = "baka4n, XenFork"
+description = '''
+Xen Datagen by Minecraft
+'''
+#logoFile = ""
+
+[[dependencies.ra2mcfot]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.ra2mcfot]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.ra2mcfot]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.6,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "ra2mcfot.mixins.json"

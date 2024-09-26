@@ -37,6 +37,6 @@ dependencies {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        jvmTarget = JvmTarget.JVM_17.toString()
+        jvmTarget = JvmTarget.JVM_21.toString()
     }
 }

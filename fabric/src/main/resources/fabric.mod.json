@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "ra2mcfot",
+  "version": "${version}",
+  "name": "ra2mcfot",
+  "description": "Ra2 Minecraft FOT",
+  "authors": [
+    "baka4n",
+    "Nitian Studio"
+  ],
+  "contact": {
+    "homepage": ""
+  },
+  "license": "MIT",
+  "icon": "assets/ra2mcfot/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.nitianstudio.ra2mcfot.fabric.Ra2mcfotFabric"
+    ],
+    "client": [
+      "io.github.nitianstudio.ra2mcfot.fabric.client.Ra2mcfotFabricClient"
+    ]
+  },
+  "mixins": [
+    "ra2mcfot.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "architectury": ">=13.0.6",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

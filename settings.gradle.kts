@@ -1,5 +1,14 @@
 import java.util.Properties
 
+pluginManagement {
+    repositories {
+        maven("https://maven.fabricmc.net/")
+        maven("https://maven.architectury.dev/")
+        maven("https://files.minecraftforge.net/maven/")
+        gradlePluginPortal()
+    }
+}
+
 var settingsPropertiesPath = file("gradle/ext/settings.properties")
 
 var settingsProperties = Properties()
@@ -16,3 +25,5 @@ if (settingsPropertiesPath.exists().not()) {
 
 
 rootProject.name = settingsProperties.getProperty("projName")
+
+include("common", "fabric", "neoforge")
