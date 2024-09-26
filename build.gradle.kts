@@ -35,6 +35,7 @@ subprojects {
         maven("https://maven.fabricmc.net/")
         maven("https://maven.architectury.dev/")
         maven("https://files.minecraftforge.net/maven/")
+        maven("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/")
         mavenCentral()
         mavenLocal()
     }

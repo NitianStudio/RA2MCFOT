@@ -29,6 +29,7 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${buildProperties.getProperty("fabric.api.version")}")
 
     modImplementation("dev.architectury:architectury-fabric:${buildProperties.getProperty("architectury.api.version")}")
+    modImplementation("software.bernie.geckolib:geckolib-fabric-${buildProperties.getProperty("minecraft.version")}:${buildProperties.getProperty("geckolib.version")}")
     common(project(":common", configuration = "namedElements")) {
         isTransitive = false
     }

@@ -32,7 +32,7 @@ dependencies {
     "neoForge"("net.neoforged:neoforge:${buildProperties.getProperty("neoforge.version")}")
 
     modImplementation("dev.architectury:architectury-neoforge:${buildProperties.getProperty("architectury.api.version")}")
-
+    modImplementation("software.bernie.geckolib:geckolib-neoforge-${buildProperties.getProperty("minecraft.version")}:${buildProperties.getProperty("geckolib.version")}")
     common(project(path= ":common", configuration = "namedElements")) {
         isTransitive = false
     }
