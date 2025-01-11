@@ -1,36 +1,33 @@
 {
   "schemaVersion": 1,
-  "id": "ra2mcfot",
+  "id": "${mod_id}",
   "version": "${version}",
-  "name": "ra2mcfot",
-  "description": "Ra2 Minecraft FOT",
+  "name": "${mod_name}",
+  "description": "${description}",
   "authors": [
-    "baka4n",
-    "Nitian Studio"
+    "${mod_author}"
   ],
   "contact": {
-    "homepage": ""
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/NitianStudio/RA2MCFOT"
   },
-  "license": "MIT",
-  "icon": "assets/ra2mcfot/icon.png",
+  "license": "${license}",
+  "icon": "${mod_id}.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.nitianstudio.ra2mcfot.fabric.Ra2mcfotFabric"
-    ],
-    "client": [
-      "io.github.nitianstudio.ra2mcfot.fabric.client.Ra2mcfotFabricClient"
+      "io.github.nitianstudio.ra2mcfot.Ra2McFotFabric"
     ]
   },
   "mixins": [
-    "ra2mcfot.mixins.json"
+    "${mod_id}.mixins.json",
+    "${mod_id}.fabric.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.16.5",
-    "minecraft": "~1.21.1",
-    "java": ">=21",
-    "architectury": ">=13.0.6",
-    "fabric-api": "*"
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}",
+    "java": ">=${java_version}"
   },
   "suggests": {
     "another-mod": "*"

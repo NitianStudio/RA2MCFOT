@@ -2,16 +2,11 @@
   "required": true,
   "minVersion": "0.8",
   "package": "io.github.nitianstudio.ra2mcfot.mixin",
-  "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_18",
-  "mixins": [
-
-  ],
+  "mixins": [],
   "client": [
   ],
-  "server": [
-
-  ],
+  "server": [],
   "injectors": {
     "defaultRequire": 1
   }
