@@ -13,6 +13,8 @@ out
 *.iml
 .idea
 
+src/main/resources/assets/minecraft
+
 # gradle
 build
 .gradle
